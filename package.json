@@ -1,0 +1,21 @@
+{
+  "name": "uenr-passco-api",
+  "version": "1.0.0",
+  "description": "An API for managing an uenr-passco mobile app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "uenr past question",
+    "uenr question",
+    "uenr"
+  ],
+  "author": "Oliver Boamah",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express3-handlebars": "^0.5.2"
+  }
+}
