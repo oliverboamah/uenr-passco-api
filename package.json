@@ -15,7 +15,9 @@
   "author": "Oliver Boamah",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "express3-handlebars": "^0.5.2"
+    "express3-handlebars": "^0.5.2",
+    "mongoose": "^5.3.14"
   }
 }

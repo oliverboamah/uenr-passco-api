@@ -1,7 +1,18 @@
 var app = require('express')();
+var bodyParser = require('body-parser');
+const database = require('./database');
+var setUpRouter = require('./src/route/route');
 
 app.set('port', process.env.PORT || 3000);
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+// set up api routes
+setUpRouter(app);
 
 // 404 catch-all handler (middleware)
 app.use('*', function (req, res) {
