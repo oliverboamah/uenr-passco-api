@@ -26,7 +26,10 @@ const user = {
                 });
             })
             .catch(err => {
-                return response.status("401").json(err);
+                return response.status("401").json({
+                    status: 'failure',
+                    err
+                });
             });
     },
 
@@ -44,10 +47,16 @@ const user = {
             password: request.param('password')
         })
             .then(doc => {
-                return response.status(200).json(doc);
+                return response.status(200).json({
+                    status: 'success',
+                    doc
+                });
             })
             .catch(err => {
-                return response.status("401").json(err);
+                return response.status("401").json({
+                    status: 'failure',
+                    err
+                });
             })
     },
 
@@ -63,11 +72,15 @@ const user = {
         UserModel.find({ referral_email: request.param('referral_email')}).limit(1)
             .then(doc => {
                 return response.status(200).json({
+                    status: 'success',
                     id: doc[0]._id
                 });
             })
             .catch(err => {
-                return response.status("401").json(err);
+                return response.status("401").json({
+                    status: 'failure',
+                    err
+                });
             })
     },
 
@@ -100,7 +113,10 @@ const user = {
                     doc
                 });
             }).catch(err => {
-                return response.status("401").json(err);
+                return response.status("401").json({
+                    status: 'failure',
+                    err
+                });
             })
     },
 
@@ -129,7 +145,10 @@ const user = {
                     doc
                 });
             }).catch(err => {
-                return response.status("401").json(err);
+                return response.status("401").json({
+                    status: 'failure',
+                    err
+                });
             })
     }
 
