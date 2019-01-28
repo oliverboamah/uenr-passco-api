@@ -13,6 +13,8 @@ function routes($router) {
     router.get('/user/get_id', user.get_id);
     router.put('/user/update', user.update);
     router.put('/user/update_password', user.update_password);
+    router.get('/user/sendEmailVerificationLink', user.sendEmailVerificationLink);
+    router.get('/user/verifyEmail', user.verifyEmail);
 
     // define account routes
     router.post('/account/store', account.store);
