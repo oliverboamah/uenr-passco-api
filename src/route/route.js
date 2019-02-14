@@ -28,6 +28,7 @@ function routes($router) {
     // define question routes
     router.post('/question/store', question.store);
     router.get('/question/show', question.show);
+    router.get('/question/search', question.search)
 }
 
 const setupRouter = function (app) {

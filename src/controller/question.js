@@ -48,11 +48,38 @@ const question = {
             programme: request.param('programme'),
             level: request.param('level')
         }).then(doc => {
+            return response.status(200).json(doc);
+        })
+            .catch(err => {
+                return response.status("401").json(err);
+            })
+    },
+
+    /**
+ * Get course question papers info
+ * 
+ * @param {Object} request HttpRequest
+ * @param {Object} response HttpResponse
+ * @param {Object} next Next Callable
+ */
+    search(request, response, next) {
+
+        const query = request.param('query');
+
+        QuestionModel.find()
+            .or([
+                { course_code: { $regex: `.*${query}.*` } },
+                { course_name: { $regex: `.*${query}.*` } },
+                { lecturer: { $regex: `.*${query}.*` } }
+            ])
+            .then(doc => {
                 return response.status(200).json(doc);
             })
             .catch(err => {
                 return response.status("401").json(err);
             })
+
+        console.log(query);
     }
 }
 module.exports = question;
